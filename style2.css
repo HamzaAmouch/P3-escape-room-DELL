@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: red;
+}
+
+p {
+    width: 60%;
+    margin: 20px auto;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+body {
+    background-image: url("img/download.jpg");
+    background-size: cover;
+    color: white;
+}
