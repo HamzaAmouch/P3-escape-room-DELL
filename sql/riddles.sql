@@ -1,20 +1,18 @@
 CREATE TABLE riddles (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    riddle VARCHAR(255) NOT NULL,
+    riddle VARCHAR(500) NOT NULL,
     answer VARCHAR(100) NOT NULL,
     hint VARCHAR(255),
     roomId INT NOT NULL
 );
 
--- Let op, dit is een voorbeeld!
-INSERT INTO riddles (riddle, answer, hint, roomId)
-VALUES
-    ('Welke Pokémon is nummer 25 in de Pokédex?', 'Pikachu', 'Het is de mascotte van Pokémon.', 1),
-    ('Wat is het type van Charmander?', 'Vuur', 'Denk aan zijn vlammende staart.', 1),
-    ('Hoe heet de evolutie van Bulbasaur?', 'Ivysaur', 'Het zit tussen Bulbasaur en Venusaur.', 1),
-    ('Wat gebeurt er als Magikarp level 20 bereikt?', 'Gyarados', 'Van nutteloos naar legendarisch!', 2),
-    ('Wat is super effectief tegen een water-type Pokémon?', 'Gras', 'Denk aan elementaire logica: wat groeit in water?', 2),
-    ('Welke legendarische vogel hoort bij het element ijs?', 'Articuno', 'Zijn naam begint met "Arti...".', 2),
-    ('Wat is de naam van de professor in de eerste Pokémon-games?', 'Professor Oak', 'Hij deelt je eerste Pokémon uit.', 3),
-    ('Welke kleur heeft shiny Charizard?', 'Zwart', 'Anders dan zijn originele oranje kleur.', 3),
-    ('Wat gebruik je om een wilde Pokémon te vangen?', 'Pokéball', 'Je gooit het naar een Pokémon.', 3);
+-- Raadsels voor het verlaten pretpark
+INSERT INTO riddles (riddle, answer, hint, roomId) VALUES
+('Ik draaide vroeger rond en rond, met muziek en vrolijkheid. Nu ben ik stil en roestig, met alleen vogels als gezelschap. Kinderen zaten ooit op mijn paardenrug. Wat ben ik?', 'Carrousel', 'Het draait in een kring, maar nu niet meer', 1),
+
+('Ik schoot je hoog in de lucht, je hart in je keel. Nu lig ik gebroken en roestig, mijn rails naar het niets. Duizenden mensen schreeuwden van plezier op mij. Wat ben ik?', 'Achtbaan', 'Een metallisch monster met bochten en hoogte', 1),
+
+('Ik zag voetafdrukken op mijn vloer, lachende gezichten in mijn spiegels. Nu ben ik verlaten en donker, fluisteringen echo''en tegen mijn wanden. Kinderen durfden niet verder dan halverwege. Wat ben ik?', 'Spiegeldoolhof', 'Je raakt jezelf aangezicht in aangezicht, maar het is nep', 1);
+
+
+ 
