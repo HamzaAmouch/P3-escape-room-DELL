@@ -15,4 +15,18 @@ INSERT INTO riddles (riddle, answer, hint, roomId) VALUES
 ('Ik zag voetafdrukken op mijn vloer, lachende gezichten in mijn spiegels. Nu ben ik verlaten en donker, fluisteringen echo''en tegen mijn wanden. Kinderen durfden niet verder dan halverwege. Wat ben ik?', 'Spiegeldoolhof', 'Je raakt jezelf aangezicht in aangezicht, maar het is nep', 1);
 
 
- InSERT INTO riddles (riddle, answer, hint, roomId) VALUES
+ INSERT INTO riddles (riddle, answer, hint, roomId) VALUES
+('Ik draaide hoog boven het park en liet je alles van boven zien. Nu piep ik zacht in de wind. Wat ben ik?', 
+'Reuzenrad', 
+'Een groot rad met gondels', 
+3),
+
+('Mensen gingen in mij zitten en botsten lachend tegen elkaar aan. Nu sta ik stil met kapotte auto’s op de vloer. Wat ben ik?', 
+'Botsauto’s', 
+'Auto’s die expres tegen elkaar botsen', 
+3),
+
+('Vroeger hoorde je muziek en zag je dansende lichtjes. Mensen probeerden prijzen te winnen bij mijn spelletjes. Nu ben ik donker en leeg. Wat ben ik?', 
+'Kermiskraam', 
+'Hier kon je prijzen winnen', 
+3);
