@@ -15,4 +15,4 @@ INSERT INTO riddles (riddle, answer, hint, roomId) VALUES
 ('Ik zag voetafdrukken op mijn vloer, lachende gezichten in mijn spiegels. Nu ben ik verlaten en donker, fluisteringen echo''en tegen mijn wanden. Kinderen durfden niet verder dan halverwege. Wat ben ik?', 'Spiegeldoolhof', 'Je raakt jezelf aangezicht in aangezicht, maar het is nep', 1);
 
 
- 
+ InSERT INTO riddles (riddle, answer, hint, roomId) VALUES
