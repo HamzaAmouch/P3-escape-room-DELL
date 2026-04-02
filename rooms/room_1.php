@@ -162,6 +162,7 @@ function checkAnswer() {
     }
     if (currentBox === boxes[2]) {
       alert("🎉 Je hebt alles gehaald!");
+      window.location.href = 'room_2.php';
     }
 
   } else {

@@ -30,3 +30,17 @@ function closeModal() {
   // Maak de feedback tekst leeg
   document.getElementById('feedback').innerText = '';
 }
+
+// Deze functie controleert het antwoord
+function checkAnswer() {
+  let input = document.getElementById('answer').value.toLowerCase();
+  let correct = document.getElementById('modal').dataset.answer;
+
+  if (input === correct) {
+    alert("Goed!");
+    closeModal();
+    // Hier kun je logica toevoegen om de box te verbergen of volgende actie
+  } else {
+    document.getElementById('feedback').innerText = "Fout!";
+  }
+}
