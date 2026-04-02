@@ -21,7 +21,7 @@ try {
     /* === VERLATEN PRETPARK THEMA === */
 
     body {
-      background: url("../img/abandoned_park.jpg") no-repeat center center/cover;
+      background: black;
       font-family: 'Courier New', monospace;
       color: #fff;
       text-shadow: 2px 2px 5px #000;
@@ -68,6 +68,10 @@ try {
       transition: .3s ease;
       position: relative;
       box-shadow: 0 0 15px #000;
+    }
+
+    .box.hidden {
+      display: none;
     }
 
     .box:hover {
@@ -139,7 +143,7 @@ try {
 
   <div class="container">
     <?php foreach ($riddles as $index => $riddle) : ?>
-    <div class="box box<?php echo $index + 1; ?>"
+    <div class="box box<?php echo $index + 1; ?> <?php echo $index > 0 ? 'hidden' : ''; ?>"
       onclick="openModal(<?php echo $index; ?>)"
       data-index="<?php echo $index; ?>"
       data-riddle="<?php echo htmlspecialchars($riddle['riddle']); ?>"
@@ -159,7 +163,62 @@ try {
     <p id="feedback"></p>
   </section>
 
-  <script src="../js/app.js"></script>
+  <script>
+    let currentIndex = null;
+    const totalRiddles = <?php echo count($riddles); ?>;
+
+    function openModal(index) {
+      currentIndex = index;
+      const box = document.querySelector(`.box${index + 1}`);
+      document.getElementById('riddle').innerText = box.dataset.riddle;
+      document.getElementById('feedback').innerText = '';
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('modal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    function checkAnswer() {
+      const box = document.querySelector(`.box${currentIndex + 1}`);
+      const correct = box.dataset.answer.toLowerCase();
+      const userInput = document.getElementById('answer').value.toLowerCase();
+
+      if (userInput === correct) {
+        if (currentIndex + 1 === totalRiddles) {
+          document.getElementById('feedback').innerText = 'Je hebt de kamer af! Door naar de volgende...';
+        } else {
+          document.getElementById('feedback').innerText = '✅ Goed gedaan! De volgende box opent...';
+        }
+        unlockNextBox();
+        closeModalAfterDelay();
+      } else {
+        document.getElementById('feedback').innerText = '❌ Helaas, probeer opnieuw!';
+      }
+    }
+
+    function unlockNextBox() {
+      const nextIndex = currentIndex + 1;
+      if (nextIndex < totalRiddles) {
+        const nextBox = document.querySelector(`.box${nextIndex + 1}`);
+        nextBox.classList.remove('hidden');
+      } else {
+        // Alle riddles klaar, ga naar kamer 3
+        setTimeout(() => {
+          window.location.href = 'room_3.php';
+        }, 2000);
+      }
+    }
+
+    function closeModalAfterDelay() {
+      setTimeout(() => {
+        closeModal();
+        document.getElementById('answer').value = '';
+      }, 1300);
+    }
+  </script>
 
 </body>
 
