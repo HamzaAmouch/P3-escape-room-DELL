@@ -10,40 +10,164 @@ try {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escape Room 3</title>
-  <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<title>Verlaten Pretpark</title>
+
+<style>
+body {
+  background: black;
+  color: white;
+  text-align: center;
+  font-family: Arial;
+}
+
+.box {
+  width: 120px;
+  height: 120px;
+  background: darkred;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.box.active {
+  display: flex;
+}
+
+.modal, .game {
+  display: none;
+  background: #111;
+  padding: 20px;
+  margin-top: 20px;
+}
+</style>
+
 </head>
 
 <body>
-  <h1>Team: ...</h1>
 
-  <div class="container">
-    <?php foreach ($riddles as $index => $riddle) : ?>
-    <div class="box box<?php echo $index + 1; ?>" onclick="openModal(<?php echo $index; ?>)"
-      data-index="<?php echo $index; ?>" data-riddle="<?php echo htmlspecialchars($riddle['riddle']); ?>"
-      data-answer="<?php echo htmlspecialchars($riddle['answer']); ?>">
-      Box <?php echo $index + 1; ?>
-    </div>
-    <?php endforeach; ?>
-  </div>
+<h1>🎢 Verlaten Pretpark</h1>
+<p>Speel eerst het spel...</p>
 
-  <section class="overlay" id="overlay" onclick="closeModal()"></section>
+<!-- GAME AREA -->
+<div id="game1" class="game">
+  <h2>Klik spel</h2>
+  <p>Klik 5 keer!</p>
+  <button onclick="clickGame()">Klik</button>
+  <p id="clickCount">0</p>
+</div>
 
-  <section class="modal" id="modal">
-    <h2>Escape Room Vraag</h2>
-    <p id="riddle"></p>
-    <input type="text" id="answer" placeholder="Typ je antwoord">
-    <button onclick="checkAnswer()">Verzenden</button>
-    <p id="feedback"></p>
-  </section>
+<div id="game2" class="game">
+  <h2>Raad het getal (1-5)</h2>
+  <input id="guess">
+  <button onclick="guessGame()">Raad</button>
+</div>
 
-  <script src="../js/app.js"></script>
+<div id="game3" class="game">
+  <h2>Kies de juiste knop</h2>
+  <button onclick="wrong()">1</button>
+  <button onclick="correct()">2</button>
+  <button onclick="wrong()">3</button>
+</div>
+
+<!-- BOXES -->
+<?php foreach ($riddles as $index => $riddle) : ?>
+<div class="box"
+  onclick="openModal(<?php echo $index; ?>)"
+  data-answer="<?php echo strtolower($riddle['answer']); ?>"
+  data-riddle="<?php echo $riddle['riddle']; ?>">
+  🎁 Vraag <?php echo $index + 1; ?>
+</div>
+<?php endforeach; ?>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <p id="riddleText"></p>
+  <input id="answerInput">
+  <button onclick="checkAnswer()">Check</button>
+  <p id="feedback"></p>
+</div>
+
+<script>
+let currentBox = null;
+let boxes = document.querySelectorAll('.box');
+
+// start game 1
+document.getElementById('game1').style.display = 'block';
+
+// GAME 1
+let clicks = 0;
+function clickGame() {
+  clicks++;
+  document.getElementById('clickCount').innerText = clicks;
+
+  if (clicks >= 5) {
+    alert("Game gehaald!");
+    document.getElementById('game1').style.display = 'none';
+    boxes[0].classList.add('active');
+  }
+}
+
+// GAME 2
+function guessGame() {
+  let random = 3; // simpel gehouden
+  let input = document.getElementById('guess').value;
+
+  if (input == random) {
+    alert("Goed!");
+    document.getElementById('game2').style.display = 'none';
+    boxes[1].classList.add('active');
+  }
+}
+
+// GAME 3
+function correct() {
+  alert("Goed!");
+  document.getElementById('game3').style.display = 'none';
+  boxes[2].classList.add('active');
+}
+
+function wrong() {
+  alert("Fout!");
+}
+
+// OPEN RIDDLE
+function openModal(index) {
+  currentBox = boxes[index];
+  document.getElementById('riddleText').innerText = currentBox.dataset.riddle;
+  document.getElementById('modal').style.display = 'block';
+}
+
+// CHECK ANSWER
+function checkAnswer() {
+  let input = document.getElementById('answerInput').value.toLowerCase();
+  let correct = currentBox.dataset.answer;
+
+  if (input === correct) {
+    alert("Goed!");
+
+    document.getElementById('modal').style.display = 'none';
+
+    // volgende game starten
+    if (currentBox === boxes[0]) {
+      document.getElementById('game2').style.display = 'block';
+    }
+    if (currentBox === boxes[1]) {
+      document.getElementById('game3').style.display = 'block';
+    }
+    if (currentBox === boxes[2]) {
+      alert("🎉 Je hebt alles gehaald!");
+    }
+
+  } else {
+    document.getElementById('feedback').innerText = "Fout!";
+  }
+}
+</script>
 
 </body>
-
 </html>
