@@ -21,7 +21,8 @@ try {
     /* === VERLATEN PRETPARK THEMA === */
 
     body {
-      background: url("../img/abandoned_park.jpg") no-repeat center center/cover;
+      background: url("../img/Weirdcation-Abandoned-Amusement-Parks-Worldwide.jpg") no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Courier New', monospace;
       color: #fff;
       text-shadow: 2px 2px 5px #000;

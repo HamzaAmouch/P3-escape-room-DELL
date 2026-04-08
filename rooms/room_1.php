@@ -17,10 +17,14 @@ try {
 
 <style>
 body {
-  background: black;
+  background: url("../img/Weirdcation-Abandoned-Amusement-Parks-Worldwide.jpg") no-repeat center center fixed;
+  background-size: cover;
   color: white;
   text-align: center;
   font-family: Arial;
+  text-shadow: 2px 2px 5px #000;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .box {
