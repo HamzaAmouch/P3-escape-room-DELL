@@ -21,7 +21,8 @@ try {
     /* === VERLATEN PRETPARK THEMA === */
 
     body {
-      background: black;
+      background: url("../img/background2.png") no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Courier New', monospace;
       color: #fff;
       text-shadow: 2px 2px 5px #000;
@@ -133,6 +134,8 @@ try {
     button:hover {
       background: #e6b800;
     }
+
+    
   </style>
 
 </head>
@@ -148,7 +151,7 @@ try {
       data-index="<?php echo $index; ?>"
       data-riddle="<?php echo htmlspecialchars($riddle['riddle']); ?>"
       data-answer="<?php echo htmlspecialchars($riddle['answer']); ?>">
-      🎡 Box <?php echo $index + 1; ?>
+      🎡 riddle <?php echo $index + 1; ?>
     </div>
     <?php endforeach; ?>
   </div>
@@ -187,11 +190,7 @@ try {
       const userInput = document.getElementById('answer').value.toLowerCase();
 
       if (userInput === correct) {
-        if (currentIndex + 1 === totalRiddles) {
-          document.getElementById('feedback').innerText = 'Je hebt de kamer af! Door naar de volgende...';
-        } else {
-          document.getElementById('feedback').innerText = '✅ Goed gedaan! De volgende box opent...';
-        }
+        document.getElementById('feedback').innerText = '✅ Goed gedaan! De volgende box opent...';
         unlockNextBox();
         closeModalAfterDelay();
       } else {
