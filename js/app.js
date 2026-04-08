@@ -38,10 +38,10 @@ function closeModal() {
   document.getElementById('feedback').innerText = '';
 }
 
-// Deze functie controleert of het ingevoerde antwoord correct is
+// Deze functie controleert het antwoord
 function checkAnswer() {
-  // Haal het antwoord van de gebruiker op uit het invoerveld en verwijder onnodige spaties
-  let userAnswer = document.getElementById('answer').value.trim();
+  let input = document.getElementById('answer').value.toLowerCase();
+  let correct = document.getElementById('modal').dataset.answer;
 
   // Haal het juiste antwoord op uit de modal
   let correctAnswer = document.getElementById('modal').dataset.answer;
