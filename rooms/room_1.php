@@ -17,7 +17,7 @@ try {
 
 <style>
 body {
-  background: url("../img/Weirdcation-Abandoned-Amusement-Parks-Worldwide.jpg") no-repeat center center fixed;
+  background: url("../img/abandoned-amusement-park-features-rusty-roller-coaster-large-ferris-wheel-weathered-merry-go-round-decaying-bumper-cars-397454253.webp") no-repeat center center fixed;
   background-size: cover;
   color: white;
   text-align: center;
