@@ -16,7 +16,26 @@ try {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Escape Room 3</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body {
+      background: white;
+      font-family: 'Courier New', monospace;
+      color: #000;
+      text-shadow: none;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Verberg de scrollbar */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Voor Firefox */
+    * {
+      scrollbar-width: none;
+    }
+  </style>
 </head>
 
 <body class="room3">
