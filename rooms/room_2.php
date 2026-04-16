@@ -144,6 +144,8 @@ try {
 
   <h1>Escape Room – Verlaten Pretpark</h1>
 
+  <div id="timer" style="text-align: center; font-size: 24px; margin: 20px 0; color: #ffffff;">Tijd over: 05:00</div>
+
   <div class="container">
     <?php foreach ($riddles as $index => $riddle) : ?>
     <div class="box box<?php echo $index + 1; ?> <?php echo $index > 0 ? 'hidden' : ''; ?>"
@@ -169,6 +171,24 @@ try {
   <script>
     let currentIndex = null;
     const totalRiddles = <?php echo count($riddles); ?>;
+
+    // Timer logica
+    let timeRemaining = 300; // 5 minuten in seconden
+    const timerElement = document.getElementById('timer');
+
+    function updateTimer() {
+      const minutes = Math.floor(timeRemaining / 60);
+      const seconds = timeRemaining % 60;
+      timerElement.innerText = `Tijd over: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      if (timeRemaining <= 0) {
+        window.location.href = '../lose.php';
+      } else {
+        timeRemaining--;
+      }
+    }
+
+    // Start timer bij laden van pagina
+    setInterval(updateTimer, 1000);
 
     function openModal(index) {
       currentIndex = index;
