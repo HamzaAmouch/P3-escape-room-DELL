@@ -40,7 +40,7 @@ try {
 </head>
 
 <body class="room3">
-  <h1>Team: ...</h1>
+  <h1>Team: DELL</h1>
 
   <div class="container">
     <?php foreach ($riddles as $index => $riddle) : ?>
