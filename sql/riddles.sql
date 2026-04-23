@@ -25,7 +25,7 @@ INSERT INTO riddles (riddle, answer, hint, roomId) VALUES
 INSERT INTO riddles (riddle, answer, hint, roomId) VALUES
 ('Ik stond ooit vol muziek en licht,nu draait mijn wereld niet meer in zicht.Mijn ruiters zijn van hout, hun blik is star,ze wachten op iemand die er ooit weer was.Wat ben ik, gevangen in een eeuwige cirkel?', 'draaimolen', ' Je gaat nergens heen, maar toch blijf je bewegen.', 2),
 
-('Mijn doek is gescheurd, mijn kleuren vervaagd,maar ooit werd hier luid gejuicht en geplaagd.Nu hoor je enkel de wind die zachtjes blaast,waar vroeger het publiek in spanning naast me stond.Wat ben ik, waar spektakel ooit leefde?', ' circustent', 'Denk aan een plek waar artiesten vroeger optraden.', 2),
+('Mijn doek is gescheurd, mijn kleuren vervaagd,maar ooit werd hier luid gejuicht en geplaagd.Nu hoor je enkel de wind die zachtjes blaast,waar vroeger het publiek in spanning naast me stond.Wat ben ik, waar spektakel ooit leefde?', 'circustent', 'Denk aan een plek waar artiesten vroeger optraden.', 2),
 
 ('Ik leid je door bochten, maar alleen in gedachten,want mijn wagens wachten al vele nachten.Mijn kettingen roesten, mijn hellingen zijn steil,maar ooit bracht ik bezoekers in een razendsnel stijl.Wat ben ik, nu stil maar ooit vol adrenaline?', 'achtbaan', 'Je vindt me hoog boven de grond.', 2);
 
