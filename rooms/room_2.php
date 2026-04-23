@@ -21,7 +21,8 @@ try {
     /* === VERLATEN PRETPARK THEMA === */
 
     body {
-      background: url("../img/abandoned_park.jpg") no-repeat center center/cover;
+      background: url("../img/abandoned-amusement-park-features-rusty-roller-coaster-large-ferris-wheel-weathered-merry-go-round-decaying-bumper-cars-397454253.webp") no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Courier New', monospace;
       color: #fff;
       text-shadow: 2px 2px 5px #000;

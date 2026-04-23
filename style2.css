@@ -15,18 +15,34 @@ p {
 }
 
 button {
-    padding: 10px 20px;
-    background-color: red;
+    padding: 12px 24px;
+    background-color: #d32f2f;
     color: white;
     border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #b71c1c;
+    transform: translateY(-1px);
+}
+
+.buttons {
+    display: inline-flex;
+    gap: 16px;
+    margin: 24px auto;
 }
 
 body {
     background-image: url("img/abandoned-amusement-park-features-rusty-roller-coaster-large-ferris-wheel-weathered-merry-go-round-decaying-bumper-cars-397454253.webp");
     background-size: cover;
+    background-position: center;
     color: white;
 }
 
-.black{
-    color:black
+.black {
+    color: black;
 }
